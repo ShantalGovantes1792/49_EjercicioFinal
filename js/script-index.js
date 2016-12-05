@@ -3,7 +3,11 @@ $(document).ready( function(){
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 
+	// funcion para ocultar la felcha en index
+
+	$(".js-back").hide();
 });
+
 
 
 /*
@@ -41,5 +45,4 @@ function renderActivities(activitiesArray) {
 function renderActivity(recipe) {
 	
 }
-
 
