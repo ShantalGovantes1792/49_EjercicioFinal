@@ -2,10 +2,17 @@ $(document).ready( function(){
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
-
+	printNews();
 	// funcion para ocultar la felcha en index
 
 	$(".js-back").hide();
+
+	function printNews(){
+		$("#new").text("NUEVAS RECETAS");
+
+	}
+
+
 });
 
 
