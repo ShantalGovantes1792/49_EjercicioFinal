@@ -13,9 +13,6 @@ $(document).ready( function(){
 	}
 
 
-
-
-
 });
 
 
@@ -27,7 +24,8 @@ $(document).ready( function(){
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes: ', recipesArray);
 
-	for ( var i = 0; i < recipesArray.length; i++){
+	for ( var i = 0; i <
+	 recipesArray.length; i++){
 
 		if ( recipesArray[i].highlighted == true ){
 			renderRecipe(recipesArray[i]);
@@ -44,7 +42,10 @@ function renderHighlightedRecipes(recipesArray) {
 * archivo "templates/templates-recipe.html"
 */
 function renderRecipe(recipe) {
-	console.log('Voy a pintar la receta: ', recipe);
+	console.log('Voy a <pintar></pintar> la receta HOLA: ', recipe);
+	var link = $('<a class="item-recipe" href="#"></a>');
+	$(".list-recipes").append(link);
+	$(".item-recipe").append('<span class="attribution"></span');
 }
 
 
