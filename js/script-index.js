@@ -30,11 +30,11 @@ function renderHighlightedRecipes(recipesArray) {
 		if ( recipesArray[i].highlighted == true ){
 			renderRecipe(recipesArray[i]);
 			console.log('Recipes: ',i);
-			}
+		}
 
 			// var recipe = recipesArray[i];
-		}
-	};
+	}
+};
 
 /*
 * Función que se encarga de pintar UNA recetas que tenga 
@@ -77,6 +77,14 @@ function renderRecipe(recipe) {
 */
 function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
+
+	for ( var i = 0; i < activitiesArray.length; i++){
+
+		if ( activitiesArray.length > 0 ){
+			console.log("esta entrando");
+			$(".wrapper-message").hide();
+		}
+	}
 
 }
 
