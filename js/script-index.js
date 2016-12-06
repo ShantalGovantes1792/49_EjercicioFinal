@@ -94,6 +94,37 @@ function renderActivities(activitiesArray) {
 * archivo "templates/templates-activity.html"
 */
 function renderActivity(recipe) {
-	
+
+	var template ='
+	<a href="#" class="item-activity">
+	  <span class="attribution">
+	  
+	    <span class="avatar">
+	      <img src="URL DE IMAGEN DE USUARIO (ATRIBUTO "userAvatar")" class="image-avatar">
+	    </span>
+	      
+	    <span class="meta">
+	      <span class="author">PRIMER NOMBRE DEL USUARIO (ATRIBUTO "userName")</span> made 
+	      <span class="recipe">TITULO DE LA RECETA (ATRIBUTO "recipeName")</span>: TEXTO ACERCA DE LA RECETA (ATRIBUTO "text") 
+	      <span class="location">&mdash;UBICACION DEL USUARIO (ATRIBUTO "place")</span>
+	    </span>
+	  
+	  </span>
+
+	  <div class="bg-image" style="background-image: url('IMAGEN DE RECETA (ATTRIBUTO "image")');"></div>
+
+	</a>';
+
+	var compiled = _.template (template);
+		var listActi = compiled(recipe);
+		console.log(listActi);
+
+		var elemento = $(listActi);
+		$('.list-activities').append(elemento);
+
+	}
+		
+
+
 }
 
