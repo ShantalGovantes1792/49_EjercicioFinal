@@ -3,6 +3,7 @@ $(document).ready( function(){
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 	printNews();
+	renderActivities(activitiesArray);
 	// funcion para ocultar la felcha en index
 
 	$(".js-back").hide();
@@ -16,7 +17,7 @@ $(document).ready( function(){
 });
 
 
-
+//
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
 * marcado el atributo "highlighted" como TRUE
@@ -24,14 +25,14 @@ $(document).ready( function(){
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes: ', recipesArray);
 
-	for ( var i = 0; i <
-	 recipesArray.length; i++){
+	for ( var i = 0; i < recipesArray.length; i++){
 
 		if ( recipesArray[i].highlighted == true ){
 			renderRecipe(recipesArray[i]);
-			console.log('Recipes: ', recipesArray[i]);
+			console.log('Recipes: ',i);
 			}
 
+			// var recipe = recipesArray[i];
 		}
 	};
 
@@ -43,9 +44,30 @@ function renderHighlightedRecipes(recipesArray) {
 */
 function renderRecipe(recipe) {
 	console.log('Voy a <pintar></pintar> la receta HOLA: ', recipe);
-	var link = $('<a class="item-recipe" href="#"></a>');
-	$(".list-recipes").append(link);
-	$(".item-recipe").append('<span class="attribution"></span');
+
+	// var recipe = recipesArray[i];
+	var aItem = $('<a class="item-recipe" href="#"></a>');
+	var spanAtrr = $('<span class="attribution"></span');
+	var spanTitle = $('<span class="title-recipe"></span>')
+		spanTitle.text(recipe.title);
+	var spanMetaReci = $('<span class="metadata-recipe"></span>');
+	var spanAutoReci = $('<span class="author-recipe"></span>');
+		spanAutoReci.text(recipe.source.name);
+
+	var img = $("<img/>");
+	var spanBookReci = $('<span class="bookmarks-recipe"></span>');
+	var spanIconBook = $('<span class="icon-bookmark"></span>');
+
+	spanBookReci.append(spanIconBook);
+	spanMetaReci.append(spanAutoReci);
+	spanMetaReci.append(spanBookReci);
+	spanAtrr.append(spanTitle);
+	spanAtrr.append(spanMetaReci);
+	aItem.append(spanAtrr);
+	aItem.append(img);
+	img.attr('src','img/recipes/320x350/'+recipe.name+'.jpg');
+
+	$(".list-recipes").append(aItem);
 }
 
 
@@ -55,6 +77,7 @@ function renderRecipe(recipe) {
 */
 function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
+
 }
 
 /*
