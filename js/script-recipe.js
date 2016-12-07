@@ -1,5 +1,5 @@
 $(document).ready( function(){
-	console.log("listo");
+	console.log("Esta listo");
 	// funcion para ocultar la felcha en index
 	$(".js-menu").hide();
 
