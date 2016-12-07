@@ -8,6 +8,12 @@ $(document).ready( function(){
 
 	$(".js-back").hide();
 
+	$(".js-menu").click(function(){
+		window.location = 'recipe.html';
+
+		
+	});
+
 	function printNews(){
 		$("#new").text("NUEVAS RECETAS");
 
@@ -117,6 +123,7 @@ function renderActivity(recipe) {
 		var elemento = $(listActi);
 
 		$('.list-activities').append(elemento);
+
 
 
 	}
