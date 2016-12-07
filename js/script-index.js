@@ -49,10 +49,10 @@ function renderRecipe(recipe) {
 	var aItem = $('<a class="item-recipe" href="#"></a>');
 	var spanAtrr = $('<span class="attribution"></span');
 	var spanTitle = $('<span class="title-recipe"></span>')
-		spanTitle.text(recipe.title);
+			spanTitle.text(recipe.title);
 	var spanMetaReci = $('<span class="metadata-recipe"></span>');
 	var spanAutoReci = $('<span class="author-recipe"></span>');
-		spanAutoReci.text(recipe.source.name);
+			spanAutoReci.text(recipe.source.name);
 
 	var img = $("<img/>");
 	var spanBookReci = $('<span class="bookmarks-recipe"></span>');
@@ -79,11 +79,12 @@ function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
 
 	for ( var i = 0; i < activitiesArray.length; i++){
-
+		// renderActivity(activitiesArray[i]);
 		if ( activitiesArray.length > 0 ){
 			console.log("esta entrando");
 			$(".wrapper-message").hide();
 		}
+		_.each(activitiesArray, renderActivity);
 	}
 
 }
@@ -94,37 +95,31 @@ function renderActivities(activitiesArray) {
 * archivo "templates/templates-activity.html"
 */
 function renderActivity(recipe) {
+ console.log("anime",recipe);
 
-	var template ='
-	<a href="#" class="item-activity">
-	  <span class="attribution">
-	  
-	    <span class="avatar">
-	      <img src="URL DE IMAGEN DE USUARIO (ATRIBUTO "userAvatar")" class="image-avatar">
-	    </span>
-	      
-	    <span class="meta">
-	      <span class="author">PRIMER NOMBRE DEL USUARIO (ATRIBUTO "userName")</span> made 
-	      <span class="recipe">TITULO DE LA RECETA (ATRIBUTO "recipeName")</span>: TEXTO ACERCA DE LA RECETA (ATRIBUTO "text") 
-	      <span class="location">&mdash;UBICACION DEL USUARIO (ATRIBUTO "place")</span>
-	    </span>
-	  
-	  </span>
+	var template = 
+	'<a href="#" class="item-activity">' +
+	  '<span class="attribution">' +
+	    '<span class="avatar">' +
+	      		'<img src="<%= userAvatar %>" class="image-avatar">' +
+	    '</span>' +
+	    '<span class="meta">' +
+	      '<span class="author"><%= userName %></span> made <span class="recipe"><%= recipeName %></span>: <%= text %> <span class="location">&mdash;<%= place %></span>' +
+	    '</span>' +
+	  '</span>' +
+	  	'<div class="bg-image" style="background-image: url(&quot; <%= image %> &quot;);"></div>' +
+	'</a>';
 
-	  <div class="bg-image" style="background-image: url('IMAGEN DE RECETA (ATTRIBUTO "image")');"></div>
-
-	</a>';
 
 	var compiled = _.template (template);
 		var listActi = compiled(recipe);
-		console.log(listActi);
-
+		console.log('listActi: ', listActi);
 		var elemento = $(listActi);
+
 		$('.list-activities').append(elemento);
+
 
 	}
 		
 
-
-}
 
